@@ -48,6 +48,5 @@ Mogućnosti administratora su date u nastavku:
 - **pregled informacija svih zaposlenika** – iako aplikacija nije namjenjena za svaki posao koji se obavlja u hotelu, administrator ima informacije o svim zaposlenicima koje su mu potrebne.
 - **menadžment finansijama –** revizija cijena
 - **specifikacija soba/apartmana**
-- **dodatne informacije i funkcionalnosti  ** koje se tiču sistema
+- **dodatne informacije i funkcionalnosti** koje se tiču sistema
 
-**\*\*prikladne slike (screenshot-i) za funkcionalnosti uskoro**

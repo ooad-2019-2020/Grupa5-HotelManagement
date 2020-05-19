@@ -10,7 +10,8 @@ namespace E_hotel_implementacija.Models
     public class Soba
     {
         [Key]
-        public int Id { get; set; }
+        public int SobaId { get; set; }
+
         public string Brojsobe { get; set; }
 
         public double CijenaSobe { get; set; }
@@ -22,6 +23,17 @@ namespace E_hotel_implementacija.Models
         [Display(Name = "Slika sobe")]
         public IFormFile SlikaSobe { get; set; }
 
+        public Context Context { get; set; }
 
+       
+        public void PromijeniStatus(IState state)
+        {
+            Context.ChangeState(state);
+        }
+
+        public Soba DajObjekat()
+        {
+            return Context.DajObjekat();
+        }
     }
 }

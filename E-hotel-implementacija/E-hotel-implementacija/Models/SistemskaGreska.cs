@@ -9,7 +9,7 @@ namespace E_hotel_implementacija.Models
     public class SistemskaGreska
     {
         [Key]
-        public int Id { get; set; }
+        public int SistemskaGreskaId { get; set; }
 
         public int KodGreske { get; set; }
 

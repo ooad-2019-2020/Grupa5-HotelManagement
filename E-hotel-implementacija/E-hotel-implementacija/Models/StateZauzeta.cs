@@ -7,11 +7,11 @@ namespace E_hotel_implementacija.Models
 {
     public class StateZauzeta:IState
     {
-        private Soba soba;
+        private Soba Soba;
 
         public StateZauzeta(Soba soba)
         {
-            this.soba = soba;
+            this.Soba = soba;
         }
 
         public Soba DajObjekat()

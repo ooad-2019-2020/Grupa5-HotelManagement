@@ -5,26 +5,26 @@ using System.Threading.Tasks;
 
 namespace E_hotel_implementacija.Models
 {
-    //i ovo bitrebala biti apstraktna klasa
-    public class Zaposlenik:Osoba
+    public class Zaposlenik : Osoba
     {
-        public Zaposlenik()
-        {
+        public int PosaoId { get; set; }
 
-        }
+        public virtual Posao Posao { get; set; }
 
-        public Zaposlenik(string ime, string prezime, string eMail, string username, string password)
+
+        public Zaposlenik(string ime, string prezime, string eMail, string username, string password, Posao posao)
         {
             Ime = ime;
             Prezime = prezime;
             EMail = eMail;
             Username = username;
             Password = password;
+            Posao = posao;
         }
 
         public override object Clone()
         {
-            return new Zaposlenik(this.Ime,this.Prezime, this.EMail,this.Username, this.Password);
+            return new Zaposlenik(this.Ime,this.Prezime, this.EMail,this.Username, this.Password,this.Posao);
         }
     }
 }

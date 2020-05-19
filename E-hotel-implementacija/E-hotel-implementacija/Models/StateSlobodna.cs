@@ -7,16 +7,16 @@ namespace E_hotel_implementacija.Models
 {
     public class StateSlobodna : IState
     {
-        private Soba soba;
+        private Soba Soba;
 
         public StateSlobodna(Soba soba)
         {
-            this.soba = soba;
+            this.Soba = soba;
         }
 
         public Soba DajObjekat()
         {
-            return soba;
+            return Soba;
         }
     }
 }

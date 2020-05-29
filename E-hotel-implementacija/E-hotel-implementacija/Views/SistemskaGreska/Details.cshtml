@@ -1,0 +1,36 @@
+﻿@model E_hotel_implementacija.Models.SistemskaGreska
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SistemskaGreska</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.UcestalostGreske)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.UcestalostGreske)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OpisGreske)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OpisGreske)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Datum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Datum)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SistemskaGreskaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

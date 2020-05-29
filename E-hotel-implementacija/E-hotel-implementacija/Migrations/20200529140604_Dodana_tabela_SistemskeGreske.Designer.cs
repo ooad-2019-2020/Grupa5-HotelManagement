@@ -4,14 +4,16 @@ using E_hotel_implementacija.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace E_hotel_implementacija.Migrations
 {
     [DbContext(typeof(NasContext))]
-    partial class NasContextModelSnapshot : ModelSnapshot
+    [Migration("20200529140604_Dodana_tabela_SistemskeGreske")]
+    partial class Dodana_tabela_SistemskeGreske
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -114,6 +116,9 @@ namespace E_hotel_implementacija.Migrations
 
                     b.Property<DateTime>("Datum")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("KodGreske")
+                        .HasColumnType("int");
 
                     b.Property<string>("OpisGreske")
                         .HasColumnType("nvarchar(max)");

@@ -21,19 +21,19 @@ namespace E_hotel_implementacija.Models
         public string OpisSobe { get; set; }
 
         [Display(Name = "Slika sobe")]
-        public IFormFile SlikaSobe { get; set; }
+        public String SlikaSobe { get; set; }
 
-        public Context Context { get; set; }
+        public StatePattern StatePattern { get; set; }
 
        
         public void PromijeniStatus(IState state)
         {
-            Context.ChangeState(state);
+            StatePattern.ChangeState(state);
         }
 
         public Soba DajObjekat()
         {
-            return Context.DajObjekat();
+            return StatePattern.DajObjekat();
         }
     }
 }

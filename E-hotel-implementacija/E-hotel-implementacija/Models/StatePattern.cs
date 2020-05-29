@@ -1,15 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace E_hotel_implementacija.Models
 {
-    public class Context
+    public class StatePattern
     {
+        [Key]
+        public int StatePaternId { get; set; }
+
         private IState state;
 
-        public Context(IState state)
+        public StatePattern()
+        {
+            state = new StateSlobodna(null);
+        }
+
+        public StatePattern(IState state)
         {
             this.state = state;
         }

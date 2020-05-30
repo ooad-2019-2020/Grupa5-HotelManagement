@@ -56,7 +56,7 @@ namespace E_hotel_implementacija.Areas.Identity.Pages.Account
 
             [Required]
             [EmailAddress]
-            [Display(Name = "Email")]
+            [Display(Name = "Username")]
             public string Email { get; set; }
 
             [Required]
@@ -90,14 +90,19 @@ namespace E_hotel_implementacija.Areas.Identity.Pages.Account
             {
                 
                 var user = new Korisnik { Ime = Input.Ime, Prezime = Input.Prezime, Email = Input.Email, UserName = Input.Username };
-                
-                
+
+                //UserManager<Korisnik> userManager= serviceProvider.GetRequiredService<UserManager<Korisnik>>();
+                //userManager.AddToRoleAsync(user,"Korisnik").Wait();
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("Korisnik created a new account with password.");
                     await _signInManager.SignInAsync(user, isPersistent: false);
+                    
+                    //novi korisnik je po defaultu u roli Korisnik
+                    await _userManager.AddToRoleAsync(user, "Korisnik");
+                    //
                     return LocalRedirect(returnUrl);
                     
                 }

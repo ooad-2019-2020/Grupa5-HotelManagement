@@ -4,12 +4,15 @@ using System.Linq;
 using System.Threading.Tasks;
 using E_hotel_implementacija.Models;
 using E_hotel_implementacija.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace E_hotel_implementacija.Controllers
 {
+    //vratiti ovo nakon popravke 
+    //[Authorize(Roles = "Administrator")]
     public class AdministrationController : Controller
     {
         private readonly RoleManager<IdentityRole> roleManager;

@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_hotel_implementacija.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace E_hotel_implementacija.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class PosaoController : Controller
     {
         private readonly NasContext _context;
@@ -19,6 +21,7 @@ namespace E_hotel_implementacija.Controllers
         }
 
         // GET: PosaoId
+        
         public async Task<IActionResult> Index()
         {
             return View(await _context.Poslovi.ToListAsync());

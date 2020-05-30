@@ -31,7 +31,7 @@ namespace E_hotel_implementacija.Data.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(256)")
                         .HasMaxLength(256);
 

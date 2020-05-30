@@ -18,13 +18,13 @@ namespace E_hotel_implementacija.Controllers
             _context = context;
         }
 
-        // GET: Posao
+        // GET: PosaoId
         public async Task<IActionResult> Index()
         {
             return View(await _context.Poslovi.ToListAsync());
         }
 
-        // GET: Posao/Details/5
+        // GET: PosaoId/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,13 +42,13 @@ namespace E_hotel_implementacija.Controllers
             return View(posao);
         }
 
-        // GET: Posao/Create
+        // GET: PosaoId/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Posao/Create
+        // POST: PosaoId/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,7 +64,7 @@ namespace E_hotel_implementacija.Controllers
             return View(posao);
         }
 
-        // GET: Posao/Edit/5
+        // GET: PosaoId/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace E_hotel_implementacija.Controllers
             return View(posao);
         }
 
-        // POST: Posao/Edit/5
+        // POST: PosaoId/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -115,7 +115,7 @@ namespace E_hotel_implementacija.Controllers
             return View(posao);
         }
 
-        // GET: Posao/Delete/5
+        // GET: PosaoId/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +133,7 @@ namespace E_hotel_implementacija.Controllers
             return View(posao);
         }
 
-        // POST: Posao/Delete/5
+        // POST: PosaoId/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

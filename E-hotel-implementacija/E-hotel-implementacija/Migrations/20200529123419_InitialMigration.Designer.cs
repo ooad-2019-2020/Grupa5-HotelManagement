@@ -21,7 +21,7 @@ namespace E_hotel_implementacija.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("E_hotel_implementacija.Models.Osoba", b =>
+            modelBuilder.Entity("E_hotel_implementacija.Models.Korisnik", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -53,12 +53,12 @@ namespace E_hotel_implementacija.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Osoba");
+                    b.ToTable("Korisnik");
 
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Osoba");
+                    b.HasDiscriminator<string>("Discriminator").HasValue("Korisnik");
                 });
 
-            modelBuilder.Entity("E_hotel_implementacija.Models.Posao", b =>
+            modelBuilder.Entity("E_hotel_implementacija.Models.PosaoId", b =>
                 {
                     b.Property<int>("PosaoId")
                         .ValueGeneratedOnAdd()
@@ -73,7 +73,7 @@ namespace E_hotel_implementacija.Migrations
 
                     b.HasKey("PosaoId");
 
-                    b.ToTable("Posao");
+                    b.ToTable("PosaoId");
                 });
 
             modelBuilder.Entity("E_hotel_implementacija.Models.Soba", b =>
@@ -122,7 +122,7 @@ namespace E_hotel_implementacija.Migrations
 
             modelBuilder.Entity("E_hotel_implementacija.Models.Zaposlenik", b =>
                 {
-                    b.HasBaseType("E_hotel_implementacija.Models.Osoba");
+                    b.HasBaseType("E_hotel_implementacija.Models.Korisnik");
 
                     b.Property<int>("PosaoId")
                         .HasColumnType("int");
@@ -141,7 +141,7 @@ namespace E_hotel_implementacija.Migrations
 
             modelBuilder.Entity("E_hotel_implementacija.Models.Zaposlenik", b =>
                 {
-                    b.HasOne("E_hotel_implementacija.Models.Posao", "Posao")
+                    b.HasOne("E_hotel_implementacija.Models.PosaoId", "PosaoId")
                         .WithMany()
                         .HasForeignKey("PosaoId")
                         .OnDelete(DeleteBehavior.Cascade)

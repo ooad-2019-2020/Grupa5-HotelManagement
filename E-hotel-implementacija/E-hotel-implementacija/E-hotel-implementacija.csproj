@@ -7,10 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20200530083332_PromijenjenUser.cs" />
+    <Compile Remove="Data\Migrations\20200530083332_PromijenjenUser.Designer.cs" />
     <Compile Remove="Migrations\20200529133719_PromijenjenaRegistracija.cs" />
     <Compile Remove="Migrations\20200529133719_PromijenjenaRegistracija.Designer.cs" />
     <Compile Remove="Migrations\20200529134121_PromijenjenaRegistracija.cs" />
     <Compile Remove="Migrations\20200529134121_PromijenjenaRegistracija.Designer.cs" />
+    <Compile Remove="Migrations\20200530085113_PromijenjenUser2.cs" />
+    <Compile Remove="Migrations\20200530085113_PromijenjenUser2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

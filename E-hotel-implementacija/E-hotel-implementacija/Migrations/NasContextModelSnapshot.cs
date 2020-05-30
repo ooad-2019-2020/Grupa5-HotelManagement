@@ -19,7 +19,7 @@ namespace E_hotel_implementacija.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("E_hotel_implementacija.Models.Osoba", b =>
+            modelBuilder.Entity("E_hotel_implementacija.Models.Korisnik", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("nvarchar(450)");
@@ -28,10 +28,6 @@ namespace E_hotel_implementacija.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -82,9 +78,7 @@ namespace E_hotel_implementacija.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Osoba");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("Osoba");
+                    b.ToTable("Korisnik");
                 });
 
             modelBuilder.Entity("E_hotel_implementacija.Models.Posao", b =>
@@ -102,7 +96,7 @@ namespace E_hotel_implementacija.Migrations
 
                     b.HasKey("PosaoId");
 
-                    b.ToTable("Posao");
+                    b.ToTable("PosaoId");
                 });
 
             modelBuilder.Entity("E_hotel_implementacija.Models.SistemskaGreska", b =>
@@ -170,32 +164,11 @@ namespace E_hotel_implementacija.Migrations
                     b.ToTable("StatePattern");
                 });
 
-            modelBuilder.Entity("E_hotel_implementacija.Models.Zaposlenik", b =>
-                {
-                    b.HasBaseType("E_hotel_implementacija.Models.Osoba");
-
-                    b.Property<int>("PosaoId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("PosaoId");
-
-                    b.HasDiscriminator().HasValue("Zaposlenik");
-                });
-
             modelBuilder.Entity("E_hotel_implementacija.Models.Soba", b =>
                 {
                     b.HasOne("E_hotel_implementacija.Models.StatePattern", "StatePattern")
                         .WithMany()
                         .HasForeignKey("StatePatternStatePaternId");
-                });
-
-            modelBuilder.Entity("E_hotel_implementacija.Models.Zaposlenik", b =>
-                {
-                    b.HasOne("E_hotel_implementacija.Models.Posao", "Posao")
-                        .WithMany()
-                        .HasForeignKey("PosaoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

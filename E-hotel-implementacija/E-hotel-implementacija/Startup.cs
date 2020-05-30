@@ -41,7 +41,7 @@ namespace E_hotel_implementacija
             services.AddControllersWithViews();
             services.AddRazorPages();*/
 
-            services.AddIdentity<Osoba,IdentityRole>()
+            services.AddIdentity<Korisnik,IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();

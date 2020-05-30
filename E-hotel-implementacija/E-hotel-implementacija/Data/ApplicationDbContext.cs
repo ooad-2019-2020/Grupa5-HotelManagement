@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace E_hotel_implementacija.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<Osoba>
+    public class ApplicationDbContext : IdentityDbContext<Korisnik>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -15,3 +15,4 @@ namespace E_hotel_implementacija.Data
         }
     }
 }
+//Add-Migration PromijenjenUser -Context E_hotel_implementacija.Data.ApplicationDbContext

@@ -9,11 +9,11 @@ namespace E_hotel_implementacija.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "Password",
-                table: "Osoba");
+                table: "Korisnik");
 
             /*migrationBuilder.AlterColumn<string>(
                 name: "Id",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: false,
                 oldClrType: typeof(int),
                 oldType: "int")
@@ -21,66 +21,66 @@ namespace E_hotel_implementacija.Migrations
 
             migrationBuilder.AddColumn<int>(
                 name: "AccessFailedCount",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: false,
                 defaultValue: 0);
 
             migrationBuilder.AddColumn<string>(
                 name: "ConcurrencyStamp",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: true);
 
             migrationBuilder.AddColumn<bool>(
                 name: "EmailConfirmed",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: false,
                 defaultValue: false);
 
             migrationBuilder.AddColumn<bool>(
                 name: "LockoutEnabled",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: false,
                 defaultValue: false);
 
             migrationBuilder.AddColumn<DateTimeOffset>(
                 name: "LockoutEnd",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "NormalizedEmail",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "NormalizedUserName",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "PasswordHash",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: true);
 
             migrationBuilder.AddColumn<string>(
                 name: "PhoneNumber",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: true);
 
             migrationBuilder.AddColumn<bool>(
                 name: "PhoneNumberConfirmed",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: false,
                 defaultValue: false);
 
             migrationBuilder.AddColumn<string>(
                 name: "SecurityStamp",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: true);
 
             migrationBuilder.AddColumn<bool>(
                 name: "TwoFactorEnabled",
-                table: "Osoba",
+                table: "Korisnik",
                 nullable: false,
                 defaultValue: false);
         }
@@ -89,55 +89,55 @@ namespace E_hotel_implementacija.Migrations
         {
             migrationBuilder.DropColumn(
                 name: "AccessFailedCount",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "ConcurrencyStamp",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "EmailConfirmed",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "LockoutEnabled",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "LockoutEnd",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "NormalizedEmail",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "NormalizedUserName",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "PasswordHash",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "PhoneNumber",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "PhoneNumberConfirmed",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "SecurityStamp",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.DropColumn(
                 name: "TwoFactorEnabled",
-                table: "Osoba");
+                table: "Korisnik");
 
             migrationBuilder.AlterColumn<int>(
                 name: "Id",
-                table: "Osoba",
+                table: "Korisnik",
                 type: "int",
                 nullable: false,
                 oldClrType: typeof(string))
@@ -145,7 +145,7 @@ namespace E_hotel_implementacija.Migrations
 
             migrationBuilder.AddColumn<string>(
                 name: "Password",
-                table: "Osoba",
+                table: "Korisnik",
                 type: "nvarchar(max)",
                 nullable: true);
         }

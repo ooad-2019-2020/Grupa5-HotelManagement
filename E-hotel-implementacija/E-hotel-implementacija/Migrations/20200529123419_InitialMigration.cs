@@ -7,7 +7,7 @@ namespace E_hotel_implementacija.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Posao",
+                name: "PosaoId",
                 columns: table => new
                 {
                     PosaoId = table.Column<int>(nullable: false)
@@ -33,7 +33,7 @@ namespace E_hotel_implementacija.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Osoba",
+                name: "Korisnik",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -52,7 +52,7 @@ namespace E_hotel_implementacija.Migrations
                     table.ForeignKey(
                         name: "FK_Osoba_Posao_PosaoId",
                         column: x => x.PosaoId,
-                        principalTable: "Posao",
+                        principalTable: "PosaoId",
                         principalColumn: "PosaoId",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -83,7 +83,7 @@ namespace E_hotel_implementacija.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Osoba_PosaoId",
-                table: "Osoba",
+                table: "Korisnik",
                 column: "PosaoId");
 
             migrationBuilder.CreateIndex(
@@ -95,13 +95,13 @@ namespace E_hotel_implementacija.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Osoba");
+                name: "Korisnik");
 
             migrationBuilder.DropTable(
                 name: "Soba");
 
             migrationBuilder.DropTable(
-                name: "Posao");
+                name: "PosaoId");
 
             migrationBuilder.DropTable(
                 name: "StatePattern");

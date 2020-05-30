@@ -15,6 +15,10 @@
     <Compile Remove="Migrations\20200529134121_PromijenjenaRegistracija.Designer.cs" />
     <Compile Remove="Migrations\20200530085113_PromijenjenUser2.cs" />
     <Compile Remove="Migrations\20200530085113_PromijenjenUser2.Designer.cs" />
+    <Compile Remove="Migrations\20200530132719_DodanaOcjena.cs" />
+    <Compile Remove="Migrations\20200530132719_DodanaOcjena.Designer.cs" />
+    <Compile Remove="Migrations\20200530132900_DodanaOcjena.cs" />
+    <Compile Remove="Migrations\20200530132900_DodanaOcjena.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

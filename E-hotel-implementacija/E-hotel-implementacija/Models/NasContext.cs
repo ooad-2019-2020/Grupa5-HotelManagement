@@ -17,6 +17,7 @@ namespace E_hotel_implementacija.Models
         public DbSet<Posao> Poslovi { get; set; }
         public DbSet<Soba> Sobe { get; set; }
         public DbSet<SistemskaGreska> SistemskeGreske { get; set; }
+        public DbSet<Ocjena> Ocjene { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,6 +27,7 @@ namespace E_hotel_implementacija.Models
             modelBuilder.Entity<Posao>().ToTable("PosaoId");
             modelBuilder.Entity<Soba>().ToTable("Soba");
             modelBuilder.Entity<SistemskaGreska>().ToTable("SistemskaGreska");
+            modelBuilder.Entity<Ocjena>().ToTable("Ocjena");
 
         }
 

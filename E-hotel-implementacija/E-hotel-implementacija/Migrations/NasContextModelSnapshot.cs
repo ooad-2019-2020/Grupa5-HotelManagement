@@ -30,9 +30,6 @@ namespace E_hotel_implementacija.Migrations
                     b.Property<string>("ConcurrencyStamp")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("bit");
 
@@ -74,6 +71,9 @@ namespace E_hotel_implementacija.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

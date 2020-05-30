@@ -19,9 +19,6 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
                         @*@if (Microsoft.AspNetCore.Identity.SignInManager<Korisnik>.IsSignedIn(User) && User.IsInRole("Administrator"))*@
                         @if (User.IsInRole("Administrator"))
                         {
@@ -44,8 +41,7 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Ocjena" asp-action="Index">Ocijeni uslugu</a>
                             </li>
                         }
-                        
-
+                    
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="SistemskaGreska" asp-action="Index">Prijavi grešku</a>
                         </li>
@@ -62,7 +58,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2020 - E_hotel - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2020 - E_hotel - Vahidin Hasić <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

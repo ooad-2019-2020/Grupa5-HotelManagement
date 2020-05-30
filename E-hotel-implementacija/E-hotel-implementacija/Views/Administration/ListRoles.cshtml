@@ -21,20 +21,31 @@
                 <h5 class="card-title">@role.Name</h5>
             </div>
 
+            <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                <a class="btn btn-primary" asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id">
+                    Edit
+                </a>
+
+                <span id="confirmDeleteSpan_@role.Id" style="display:none">
+                    <span>Jeste li sigurni da želite obrisati?</span>
+                    <button type="submit" class="btn btn-danger">Yes</button>
+                    <a href="#" class="btn btn-primary"
+                       onclick="confirmDelete('@role.Id', false)">No</a>
+                </span>
+
+                <span id="deleteSpan_@role.Id">
+                    <a href="#" class="btn btn-danger"
+                       onclick="confirmDelete('@role.Id', true)">Delete</a>
+                </span>
+            </form>
+
+
             @*<div class="card-footer">
-                <a asp-action="EditRole" asp-controller="Administration"
-                   asp-route-id="@role.Id" class="btn btn-primary">Edit</a>
-                <button type="submit" class="btn btn-danger"
-                        onclick="return confirm('Jeste li sigurni da želite obrisati : @role.Name')">
-                    Delete
-                </button>
-            </div>*@
-            <div class="card-footer">
                     <a class="btn btn-primary" asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id">
                         Edit
                     </a>
                     <a class="btn btn-danger" asp-action="DeleteRole" asp-controller="Administration" asp-route-id="@role.Id">Delete</a>
-                </div>
+                </div>*@
         </div>
     }
 }

@@ -18,7 +18,7 @@ namespace E_hotel_implementacija.Models
         public string OpisGreske { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{dd.MM.yyyy}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Datum kada se greška pojavila")]
         public DateTime Datum { get; set; }
     }

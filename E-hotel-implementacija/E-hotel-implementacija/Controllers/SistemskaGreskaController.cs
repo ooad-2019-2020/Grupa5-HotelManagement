@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace E_hotel_implementacija.Controllers
 {
-    [Authorize(Roles = "Administrator,Korisnik")]
+    
     public class SistemskaGreskaController : Controller
     {
         private readonly NasContext _context;

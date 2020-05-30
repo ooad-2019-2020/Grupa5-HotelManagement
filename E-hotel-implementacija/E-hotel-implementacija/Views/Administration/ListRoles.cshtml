@@ -20,12 +20,21 @@
             <div class="card-body">
                 <h5 class="card-title">@role.Name</h5>
             </div>
+
+            @*<div class="card-footer">
+                <a asp-action="EditRole" asp-controller="Administration"
+                   asp-route-id="@role.Id" class="btn btn-primary">Edit</a>
+                <button type="submit" class="btn btn-danger"
+                        onclick="return confirm('Jeste li sigurni da želite obrisati : @role.Name')">
+                    Delete
+                </button>
+            </div>*@
             <div class="card-footer">
-                <a class="btn btn-primary" asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id">
-                Edit
-                </a>
-                <a class="btn btn-danger" asp-action="DeleteRole" asp-controller="Administration" asp-route-id="@role.Id">Delete</a>
-            </div>
+                    <a class="btn btn-primary" asp-action="EditRole" asp-controller="Administration" asp-route-id="@role.Id">
+                        Edit
+                    </a>
+                    <a class="btn btn-danger" asp-action="DeleteRole" asp-controller="Administration" asp-route-id="@role.Id">Delete</a>
+                </div>
         </div>
     }
 }
@@ -45,4 +54,7 @@ else
             </a>
         </div>
     </div>
+}
+@section Scripts {
+    <script src="~/js/site.js"></script>
 }

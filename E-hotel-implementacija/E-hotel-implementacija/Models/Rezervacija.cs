@@ -11,6 +11,11 @@ namespace E_hotel_implementacija.Models
         [Key]
         public int RezervacijaId { get; set; }
 
+        public Korisnik Gost { get; set; }
+
+        [Display(Name = "Rezervisana soba")]
+        public Soba Soba { get; set; }
+
         [DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{dd.MM.yyyy}", ApplyFormatInEditMode = true)]
         [Display(Name = "Datum početka boravka")]

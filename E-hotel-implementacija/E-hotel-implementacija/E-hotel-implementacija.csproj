@@ -21,6 +21,8 @@
     <Compile Remove="Migrations\20200530132900_DodanaOcjena.Designer.cs" />
     <Compile Remove="Migrations\20200531122856_Proba.cs" />
     <Compile Remove="Migrations\20200531122856_Proba.Designer.cs" />
+    <Compile Remove="Migrations\20200605135441_DodanaRezervacija.cs" />
+    <Compile Remove="Migrations\20200605135441_DodanaRezervacija.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

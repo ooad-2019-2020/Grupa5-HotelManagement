@@ -19,6 +19,8 @@ namespace E_hotel_implementacija.Models
         public DbSet<SistemskaGreska> SistemskeGreske { get; set; }
         public DbSet<Ocjena> Ocjene { get; set; }
 
+        public DbSet<Rezervacija> Rezervacije { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //modelBuilder.Entity<Korisnik>().ToTable("Korisnik");
@@ -28,6 +30,7 @@ namespace E_hotel_implementacija.Models
             modelBuilder.Entity<Soba>().ToTable("Soba");
             modelBuilder.Entity<SistemskaGreska>().ToTable("SistemskaGreska");
             modelBuilder.Entity<Ocjena>().ToTable("Ocjena");
+            modelBuilder.Entity<Rezervacija>().ToTable("Rezervacija");
 
         }
 

@@ -1,0 +1,49 @@
+﻿@model E_hotel_implementacija.Models.Soba
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Soba</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Brojsobe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Brojsobe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CijenaSobe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CijenaSobe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OcjenaSobe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OcjenaSobe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.OpisSobe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.OpisSobe)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SlikaSobe)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SlikaSobe)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SobaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

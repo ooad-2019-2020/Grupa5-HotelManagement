@@ -4,14 +4,16 @@ using E_hotel_implementacija.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace E_hotel_implementacija.Migrations
 {
     [DbContext(typeof(NasContext))]
-    partial class NasContextModelSnapshot : ModelSnapshot
+    [Migration("20200606131251_ObisanaTabelaRezervacija")]
+    partial class ObisanaTabelaRezervacija
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -118,47 +120,6 @@ namespace E_hotel_implementacija.Migrations
                     b.ToTable("PosaoId");
                 });
 
-            modelBuilder.Entity("E_hotel_implementacija.Models.Rezervacija", b =>
-                {
-                    b.Property<int>("RezervacijaId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DatumKraja")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DatumPocetka")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("DatumRezervacije")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("KorisnikId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("Parking")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Popust")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SobaId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Validnost")
-                        .HasColumnType("bit");
-
-                    b.HasKey("RezervacijaId");
-
-                    b.HasIndex("KorisnikId");
-
-                    b.HasIndex("SobaId");
-
-                    b.ToTable("Rezervacija");
-                });
-
             modelBuilder.Entity("E_hotel_implementacija.Models.SistemskaGreska", b =>
                 {
                     b.Property<int>("SistemskaGreskaId")
@@ -222,21 +183,6 @@ namespace E_hotel_implementacija.Migrations
                     b.HasKey("StatePaternId");
 
                     b.ToTable("StatePattern");
-                });
-
-            modelBuilder.Entity("E_hotel_implementacija.Models.Rezervacija", b =>
-                {
-                    b.HasOne("E_hotel_implementacija.Models.Korisnik", "Korisnik")
-                        .WithMany()
-                        .HasForeignKey("KorisnikId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("E_hotel_implementacija.Models.Soba", "Soba")
-                        .WithMany()
-                        .HasForeignKey("SobaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("E_hotel_implementacija.Models.Soba", b =>

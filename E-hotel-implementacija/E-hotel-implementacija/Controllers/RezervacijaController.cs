@@ -21,7 +21,8 @@ namespace E_hotel_implementacija.Controllers
         // GET: Rezervacija
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Rezervacije.ToListAsync());
+            var nasContext = _context.Rezervacije.Include(r => r.Korisnik).Include(r => r.Soba);
+            return View(await nasContext.ToListAsync());
         }
 
         // GET: Rezervacija/Details/5
@@ -33,6 +34,8 @@ namespace E_hotel_implementacija.Controllers
             }
 
             var rezervacija = await _context.Rezervacije
+                .Include(r => r.Korisnik)
+                .Include(r => r.Soba)
                 .FirstOrDefaultAsync(m => m.RezervacijaId == id);
             if (rezervacija == null)
             {
@@ -45,6 +48,8 @@ namespace E_hotel_implementacija.Controllers
         // GET: Rezervacija/Create
         public IActionResult Create()
         {
+            ViewData["KorisnikId"] = new SelectList(_context.Korisnici, "Id", "Ime");
+            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "SobaId");
             return View();
         }
 
@@ -53,7 +58,7 @@ namespace E_hotel_implementacija.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RezervacijaId,DatumPocetka,DatumKraja,Popust,DatumRezervacije,Parking,Validnost")] Rezervacija rezervacija)
+        public async Task<IActionResult> Create([Bind("RezervacijaId,KorisnikId,SobaId,DatumPocetka,DatumKraja,Popust,DatumRezervacije,Parking,Validnost")] Rezervacija rezervacija)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +66,8 @@ namespace E_hotel_implementacija.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["KorisnikId"] = new SelectList(_context.Korisnici, "Id", "Ime", rezervacija.KorisnikId);
+            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "SobaId", rezervacija.SobaId);
             return View(rezervacija);
         }
 
@@ -77,6 +84,8 @@ namespace E_hotel_implementacija.Controllers
             {
                 return NotFound();
             }
+            ViewData["KorisnikId"] = new SelectList(_context.Korisnici, "Id", "Ime", rezervacija.KorisnikId);
+            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "SobaId", rezervacija.SobaId);
             return View(rezervacija);
         }
 
@@ -85,7 +94,7 @@ namespace E_hotel_implementacija.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RezervacijaId,DatumPocetka,DatumKraja,Popust,DatumRezervacije,Parking,Validnost")] Rezervacija rezervacija)
+        public async Task<IActionResult> Edit(int id, [Bind("RezervacijaId,KorisnikId,SobaId,DatumPocetka,DatumKraja,Popust,DatumRezervacije,Parking,Validnost")] Rezervacija rezervacija)
         {
             if (id != rezervacija.RezervacijaId)
             {
@@ -112,6 +121,8 @@ namespace E_hotel_implementacija.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["KorisnikId"] = new SelectList(_context.Korisnici, "Id", "Ime", rezervacija.KorisnikId);
+            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "SobaId", rezervacija.SobaId);
             return View(rezervacija);
         }
 
@@ -124,6 +135,8 @@ namespace E_hotel_implementacija.Controllers
             }
 
             var rezervacija = await _context.Rezervacije
+                .Include(r => r.Korisnik)
+                .Include(r => r.Soba)
                 .FirstOrDefaultAsync(m => m.RezervacijaId == id);
             if (rezervacija == null)
             {

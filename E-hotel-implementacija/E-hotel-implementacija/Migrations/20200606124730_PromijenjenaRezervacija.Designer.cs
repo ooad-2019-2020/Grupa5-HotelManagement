@@ -4,14 +4,16 @@ using E_hotel_implementacija.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace E_hotel_implementacija.Migrations
 {
     [DbContext(typeof(NasContext))]
-    partial class NasContextModelSnapshot : ModelSnapshot
+    [Migration("20200606124730_PromijenjenaRezervacija")]
+    partial class PromijenjenaRezervacija
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -134,8 +136,7 @@ namespace E_hotel_implementacija.Migrations
                     b.Property<DateTime>("DatumRezervacije")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("KorisnikId")
-                        .IsRequired()
+                    b.Property<string>("GostId")
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Parking")
@@ -147,12 +148,15 @@ namespace E_hotel_implementacija.Migrations
                     b.Property<int>("SobaId")
                         .HasColumnType("int");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<bool>("Validnost")
                         .HasColumnType("bit");
 
                     b.HasKey("RezervacijaId");
 
-                    b.HasIndex("KorisnikId");
+                    b.HasIndex("GostId");
 
                     b.HasIndex("SobaId");
 
@@ -226,11 +230,9 @@ namespace E_hotel_implementacija.Migrations
 
             modelBuilder.Entity("E_hotel_implementacija.Models.Rezervacija", b =>
                 {
-                    b.HasOne("E_hotel_implementacija.Models.Korisnik", "Korisnik")
+                    b.HasOne("E_hotel_implementacija.Models.Korisnik", "Gost")
                         .WithMany()
-                        .HasForeignKey("KorisnikId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GostId");
 
                     b.HasOne("E_hotel_implementacija.Models.Soba", "Soba")
                         .WithMany()

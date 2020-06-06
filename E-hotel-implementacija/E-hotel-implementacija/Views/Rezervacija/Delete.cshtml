@@ -13,6 +13,18 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Korisnik)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Korisnik.Id)
+        </dd class>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Soba)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Soba.SobaId)
+        </dd class>
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.DatumPocetka)
         </dt>
         <dd class = "col-sm-10">

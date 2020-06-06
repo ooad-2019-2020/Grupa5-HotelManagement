@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,10 +12,26 @@ namespace E_hotel_implementacija.Models
         [Key]
         public int RezervacijaId { get; set; }
 
-        public Korisnik Gost { get; set; }
+
+
+        [Required(ErrorMessage = "Morate dodati korisnika koji rezerviše")]
+        [Display(Name = "Gost")]
+        [ForeignKey("Korisnik")]
+        public string KorisnikId { get; set; }
+
+        [Display(Name = "Gost")]
+        public virtual Korisnik Korisnik { get; set; }
+
+
+
+
+        [Required(ErrorMessage = "Morate dodati sobu koja se rezerviše")]
+        [Display(Name = "Rezervisana soba")]
+        [ForeignKey("Soba")]
+        public int SobaId { get; set; }
 
         [Display(Name = "Rezervisana soba")]
-        public Soba Soba { get; set; }
+        public virtual Soba Soba { get; set; }
 
         [DataType(DataType.Date)]
         //[DisplayFormat(DataFormatString = "{dd.MM.yyyy}", ApplyFormatInEditMode = true)]
@@ -37,7 +54,7 @@ namespace E_hotel_implementacija.Models
         public int Parking { get; set; }
 
 
-        [Display(Name = "Validnost rezervacije")]
+        [Display(Name = "Rezervacija validna")]
         public bool Validnost { get; set; }
     }
 }

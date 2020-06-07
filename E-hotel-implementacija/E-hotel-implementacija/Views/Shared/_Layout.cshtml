@@ -39,7 +39,18 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Rezervacija" asp-action="Index">Prikaži rezervacije</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Rezervacija" asp-action="Index">Rezervacije</a>
+                            </li>
+                        }
+
+                        @if (User.IsInRole("Recepcioner"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Soba" asp-action="Index">Prikaži sobe</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Rezervacija" asp-action="Index">Rezervacije</a>
                             </li>
                         }
 
@@ -56,7 +67,7 @@
                         @if (User.IsInRole("Administrator"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="SistemskaGreska" asp-action="Index">Prikaz sistemskih grešaka</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="SistemskaGreska" asp-action="Index">Sistemske greške</a>
                             </li>
                         }
                         else

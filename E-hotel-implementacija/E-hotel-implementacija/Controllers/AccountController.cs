@@ -31,7 +31,7 @@ namespace E_hotel_implementacija.Controllers
 
 
         [HttpPost]
-        [AllowAnonymous]
+        //[AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
@@ -45,6 +45,9 @@ namespace E_hotel_implementacija.Controllers
                 };
 
                 var result = await userManager.CreateAsync(user, model.Password);
+
+                //novi korisnik je po defaultu u roli Korisnik
+                await userManager.AddToRoleAsync(user, "Korisnik");
 
                 if (result.Succeeded)
                 {

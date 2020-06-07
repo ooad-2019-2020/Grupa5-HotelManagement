@@ -31,6 +31,16 @@
     <Compile Remove="Migrations\20200606130616_RezervacijaPromijenjena.Designer.cs" />
     <Compile Remove="Migrations\20200606131353_PonovoDodanaTabelaRezervacija.cs" />
     <Compile Remove="Migrations\20200606131353_PonovoDodanaTabelaRezervacija.Designer.cs" />
+    <Compile Remove="Migrations\20200607100059_PromijenjenaRezervacija2.cs" />
+    <Compile Remove="Migrations\20200607100059_PromijenjenaRezervacija2.Designer.cs" />
+    <Compile Remove="Migrations\20200607100533_ObrisanaRezervacija2.cs" />
+    <Compile Remove="Migrations\20200607100533_ObrisanaRezervacija2.Designer.cs" />
+    <Compile Remove="Migrations\20200607101425_ObrisanaRezervacija2.cs" />
+    <Compile Remove="Migrations\20200607101425_ObrisanaRezervacija2.Designer.cs" />
+    <Compile Remove="Migrations\20200607101702_ObrisanaRezervacija2.cs" />
+    <Compile Remove="Migrations\20200607101702_ObrisanaRezervacija2.Designer.cs" />
+    <Compile Remove="Migrations\20200607101834_promijenjenaRezervacija2.cs" />
+    <Compile Remove="Migrations\20200607101834_promijenjenaRezervacija2.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

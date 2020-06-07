@@ -16,7 +16,7 @@ namespace E_hotel_implementacija.Models
 
         [Required(ErrorMessage = "Morate dodati korisnika koji rezerviše")]
         [Display(Name = "Gost")]
-        [ForeignKey("Korisnik")]
+        [ForeignKey("AspNetUsers")]
         public string KorisnikId { get; set; }
 
         [Display(Name = "Gost")]

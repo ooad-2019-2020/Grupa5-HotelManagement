@@ -7,6 +7,9 @@ namespace E_hotel_implementacija.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Rezervacija");
+
             migrationBuilder.CreateTable(
                 name: "Rezervacija",
                 columns: table => new
@@ -28,7 +31,7 @@ namespace E_hotel_implementacija.Migrations
                     table.ForeignKey(
                         name: "FK_Rezervacija_Korisnik_KorisnikId",
                         column: x => x.KorisnikId,
-                        principalTable: "Korisnik",
+                        principalTable: "AspNetUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(

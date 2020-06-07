@@ -6,16 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_hotel_implementacija.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace E_hotel_implementacija.Controllers
 {
     public class RezervacijaController : Controller
     {
         private readonly NasContext _context;
+        private readonly UserManager<Korisnik> userManager;
 
-        public RezervacijaController(NasContext context)
+        public RezervacijaController(NasContext context, UserManager<Korisnik> userManager)
         {
             _context = context;
+            this.userManager = userManager;
         }
 
         // GET: Rezervacija
@@ -48,8 +51,8 @@ namespace E_hotel_implementacija.Controllers
         // GET: Rezervacija/Create
         public IActionResult Create()
         {
-            ViewData["KorisnikId"] = new SelectList(_context.Korisnici, "Id", "Ime");
-            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "SobaId");
+            ViewData["KorisnikId"] = new SelectList(userManager.Users, "Id", "Ime");
+            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "Brojsobe");
             return View();
         }
 
@@ -67,7 +70,7 @@ namespace E_hotel_implementacija.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["KorisnikId"] = new SelectList(_context.Korisnici, "Id", "Ime", rezervacija.KorisnikId);
-            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "SobaId", rezervacija.SobaId);
+            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "Brojsobe", rezervacija.SobaId);
             return View(rezervacija);
         }
 
@@ -85,7 +88,7 @@ namespace E_hotel_implementacija.Controllers
                 return NotFound();
             }
             ViewData["KorisnikId"] = new SelectList(_context.Korisnici, "Id", "Ime", rezervacija.KorisnikId);
-            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "SobaId", rezervacija.SobaId);
+            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "Brojsobe", rezervacija.SobaId);
             return View(rezervacija);
         }
 
@@ -122,7 +125,7 @@ namespace E_hotel_implementacija.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["KorisnikId"] = new SelectList(_context.Korisnici, "Id", "Ime", rezervacija.KorisnikId);
-            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "SobaId", rezervacija.SobaId);
+            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "Brojsobe", rezervacija.SobaId);
             return View(rezervacija);
         }
 

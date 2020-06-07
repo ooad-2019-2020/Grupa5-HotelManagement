@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_hotel_implementacija.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 
 namespace E_hotel_implementacija.Controllers
 {
@@ -14,11 +15,14 @@ namespace E_hotel_implementacija.Controllers
     {
         private readonly NasContext _context;
         private readonly UserManager<Korisnik> userManager;
+        //private readonly HttpContextAccessor httpContextAccessor;
+        private  HttpContext HttpContext => ControllerContext.HttpContext;
 
-        public RezervacijaController(NasContext context, UserManager<Korisnik> userManager)
+        public RezervacijaController(NasContext context, UserManager<Korisnik> userManager/*, HttpContextAccessor httpContextAccessor*/)
         {
             _context = context;
             this.userManager = userManager;
+            //this.httpContextAccessor = httpContextAccessor;
         }
 
         // GET: Rezervacija
@@ -63,15 +67,17 @@ namespace E_hotel_implementacija.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("RezervacijaId,KorisnikId,SobaId,DatumPocetka,DatumKraja,Popust,DatumRezervacije,Parking,Validnost")] Rezervacija rezervacija)
         {
-            if (ModelState.IsValid)
-            {
+            
+                var user = HttpContext.User;
+                var userfromDb = await userManager.GetUserAsync(user);
+                if (userfromDb != null) rezervacija.KorisnikId = userfromDb.Id;
+                rezervacija.DatumRezervacije = DateTime.Now;
+
+
                 _context.Add(rezervacija);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["KorisnikId"] = new SelectList(_context.Korisnici, "Id", "Ime", rezervacija.KorisnikId);
-            ViewData["SobaId"] = new SelectList(_context.Sobe, "SobaId", "Brojsobe", rezervacija.SobaId);
-            return View(rezervacija);
+            
         }
 
         // GET: Rezervacija/Edit/5

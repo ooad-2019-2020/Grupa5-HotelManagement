@@ -59,24 +59,27 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Ocjena" asp-action="Index">Ocijeni uslugu</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Rezervacija" asp-action="Create">Rezerviši</a>
-                            </li>
-                        }
+                            @if (!User.IsInRole("Recepcioner"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Rezervacija" asp-action="Create">Rezerviši</a>
+                                </li>
+                                }
+                            }
 
-                        @if (User.IsInRole("Administrator"))
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="SistemskaGreska" asp-action="Index">Sistemske greške</a>
-                            </li>
-                        }
-                        else
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="SistemskaGreska" asp-action="Create">Prijavi grešku</a>
-                            </li>
-                        }
-                    </ul>
+                            @if (User.IsInRole("Administrator"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SistemskaGreska" asp-action="Index">Sistemske greške</a>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="SistemskaGreska" asp-action="Create">Prijavi grešku</a>
+                                </li>
+                            }
+                        </ul>
                 </div>
             </div>
         </nav>

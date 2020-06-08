@@ -23,16 +23,18 @@ namespace E_hotel_implementacija.Areas.Identity.Pages.Account
         private readonly SignInManager<Korisnik> _signInManager;
         private readonly UserManager<Korisnik> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-        
+        private readonly NasContext _context;
 
         public RegisterModel(
             UserManager<Korisnik> userManager,
             SignInManager<Korisnik> signInManager,
-            ILogger<RegisterModel> logger)
+            ILogger<RegisterModel> logger,
+            NasContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _context = context;
         }
 
         [BindProperty]
@@ -95,11 +97,16 @@ namespace E_hotel_implementacija.Areas.Identity.Pages.Account
                 //userManager.AddToRoleAsync(user,"Korisnik").Wait();
 
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
+                
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("Korisnik created a new account with password.");
                     await _signInManager.SignInAsync(user, isPersistent: false);
+
                     
+                    _context.Add(user);
+                    await _context.SaveChangesAsync();
                     //novi korisnik je po defaultu u roli Korisnik
                     await _userManager.AddToRoleAsync(user, "Korisnik");
                     //

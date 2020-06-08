@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace E_hotel_implementacija.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     public class AccountController : Controller
     {
         private readonly UserManager<IdentityUser> userManager;

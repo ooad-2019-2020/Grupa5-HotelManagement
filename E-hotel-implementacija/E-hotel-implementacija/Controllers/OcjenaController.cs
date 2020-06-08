@@ -6,16 +6,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_hotel_implementacija.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace E_hotel_implementacija.Controllers
 {
     public class OcjenaController : Controller
     {
         private readonly NasContext _context;
+        private readonly RoleManager<IdentityRole> roleManager;
+        private readonly UserManager<Korisnik> userManager;
 
-        public OcjenaController(NasContext context)
+        public OcjenaController(NasContext context, RoleManager<IdentityRole> roleManager, UserManager<Korisnik> userManager)
         {
             _context = context;
+            this.roleManager = roleManager;
+            this.userManager = userManager;
         }
 
         // GET: Ocjena
@@ -59,11 +65,20 @@ namespace E_hotel_implementacija.Controllers
             {
                 _context.Add(ocjena);
                 await _context.SaveChangesAsync();
+
+                //var user = HttpContext.User;
+                //var userfromDb = await userManager.GetUserAsync(user);
+                //if (await userManager.IsInRoleAsync(userfromDb, "Administrator"))
+                //{
+                //    return RedirectToAction(nameof(Index));
+                //}
+
                 return RedirectToAction(nameof(Index));
             }
             return View(ocjena);
         }
 
+        [Authorize(Roles = "Administrator")]
         // GET: Ocjena/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
@@ -85,6 +100,7 @@ namespace E_hotel_implementacija.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int id, [Bind("OcjenaId,Vrijednost,Opis")] Ocjena ocjena)
         {
             if (id != ocjena.OcjenaId)
@@ -116,6 +132,7 @@ namespace E_hotel_implementacija.Controllers
         }
 
         // GET: Ocjena/Delete/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,6 +153,7 @@ namespace E_hotel_implementacija.Controllers
         // POST: Ocjena/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var ocjena = await _context.Ocjene.FindAsync(id);

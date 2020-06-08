@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using E_hotel_implementacija.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace E_hotel_implementacija.Controllers
 {
@@ -81,6 +82,7 @@ namespace E_hotel_implementacija.Controllers
         }
 
         // GET: Rezervacija/Edit/5
+        [Authorize(Roles = "Administrator,Recepcioner")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -103,6 +105,7 @@ namespace E_hotel_implementacija.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator,Recepcioner")]
         public async Task<IActionResult> Edit(int id, [Bind("RezervacijaId,KorisnikId,SobaId,DatumPocetka,DatumKraja,Popust,DatumRezervacije,Parking,Validnost")] Rezervacija rezervacija)
         {
             if (id != rezervacija.RezervacijaId)
@@ -136,6 +139,7 @@ namespace E_hotel_implementacija.Controllers
         }
 
         // GET: Rezervacija/Delete/5
+        [Authorize(Roles = "Administrator,Recepcioner")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -158,6 +162,7 @@ namespace E_hotel_implementacija.Controllers
         // POST: Rezervacija/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator,Recepcioner")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var rezervacija = await _context.Rezervacije.FindAsync(id);

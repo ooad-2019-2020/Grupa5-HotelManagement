@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using E_hotel_implementacija.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace E_hotel_implementacija.Controllers
 {
+    [Authorize(Roles = "Administrator,Recepcioner")]
     public class SobaController : Controller
     {
         private readonly NasContext _context;

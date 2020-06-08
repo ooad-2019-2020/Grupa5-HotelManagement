@@ -57,7 +57,7 @@
                         @if (User.IsInRole("Korisnik"))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Ocjena" asp-action="Index">Ocijeni uslugu</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Ocjena" asp-action="Create">Ocijeni uslugu</a>
                             </li>
                             @if (!User.IsInRole("Recepcioner"))
                             {

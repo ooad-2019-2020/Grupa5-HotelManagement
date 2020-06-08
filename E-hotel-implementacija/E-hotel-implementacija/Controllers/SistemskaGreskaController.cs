@@ -67,6 +67,7 @@ namespace E_hotel_implementacija.Controllers
         }
 
         // GET: SistemskaGreska/Edit/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,6 +88,7 @@ namespace E_hotel_implementacija.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(int id, [Bind("SistemskaGreskaId,UcestalostGreske,OpisGreske,Datum")] SistemskaGreska sistemskaGreska)
         {
             if (id != sistemskaGreska.SistemskaGreskaId)
@@ -118,6 +120,7 @@ namespace E_hotel_implementacija.Controllers
         }
 
         // GET: SistemskaGreska/Delete/5
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,6 +141,7 @@ namespace E_hotel_implementacija.Controllers
         // POST: SistemskaGreska/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var sistemskaGreska = await _context.SistemskeGreske.FindAsync(id);
